@@ -1,0 +1,892 @@
+:root {
+    --backgroundColor: rgb(92, 74, 99); /* Regular */
+    --veryCloseBackgroundColor: rgb(87, 70, 94); /* .95 */
+    --middleBackgroundColor: rgb(78, 63, 84); /* .85 */
+    --darkerBackgroundColor: rgb(64, 52, 69); /* .7 */
+    --darkerBackgroundColorHalf: rgba(64,52,69,0.9);
+    --gradientStart: rgb(135, 109, 146); /* 1.47 */
+    --borderColor: rgb(128, 128, 128); /* 1.45 */
+}
+
+* {
+    font-family: Nunito;
+    vertical-align: top;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+.afterIntro {
+    display: none;
+}
+
+div {
+  user-select: none;
+}
+
+/* Intro stuff */
+
+#textContainer {
+    position: absolute;
+    margin: 0;
+    font-size: calc(5vw + 5vh);
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#bedText {
+    font-family: 'Noto Serif', serif;
+    margin: 0;
+    color: white;
+    transition: all 500ms cubic-bezier(.05,.86,.79,1.49);
+    background-color: transparent;
+}
+
+.letters0, .letters1, .letters2 {
+    font-family: 'Noto Serif', serif;
+    margin: 0;
+    color: white;
+    display: none;
+    margin: 0;
+    position: absolute;
+    font-size: calc(3vw + 3vh);
+    top: calc(5vw + 5vh);
+    transition: all 300ms ease-out;
+}
+
+#animationHover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#animationHover:hover {
+    cursor: pointer;
+}
+
+.animationGradients {
+    height: 0;
+    width: 0;
+    position: absolute;
+    background-color: transparent;
+    box-shadow: 0 0 20vh 5vh white;
+}
+
+.bodyFadeIn {
+    animation: fadeIn 1000ms ease-out;
+}
+
+.bodyFadeOut {
+    animation: fadeOut 1000ms ease-in;
+}
+
+.journalText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 27vh;
+    color: white;
+    font-size: calc(5vw + 5vh);
+    font-family: 'Noto Serif', serif;
+    margin: 0;
+    animation: fadeIn 1000ms ease-out;
+}
+
+
+#bedTitle {
+    background-color: var(--backgroundColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(225,225,225);
+    font-family: Parisienne;
+    text-align: center;
+    font-size: calc(1.5vw + 2.86vh);
+    width: 100vw;
+    margin-top: 0;
+    height: 10vh;
+    margin-bottom: 0;
+}
+
+.screen {
+    height: 88vh;
+    display: flex;
+    align-items: center;
+}
+
+.menuBar h3 {
+    text-align: center;
+    font-size: 1.5vw;
+    color: white;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+#moduleFirstHr {
+    background-color: var(--borderColor);
+    border: 1px solid var(--borderColor);
+    width: 95%;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.menuBar p{
+    background-color: var(--backgroundColor);
+    width: 98%;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    transition: 0.1s transform ease-out;
+    padding: 0.3% 0.3% 0.3% 0.3%;
+}
+
+.menuBar p:hover {
+    background-color: var(--darkerBackgroundColor);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transform: scale(1.05) rotate(1deg);
+}
+
+.menuBar hr , #hamburgerListId hr:not(:first-child){
+    background-color: var(--borderColor);
+    border: 0.5px solid var(--borderColor);
+    width: 80%;
+    align-self:center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: black;
+    background-size: cover;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.menuBar{
+    flex: 1;
+    border-radius: 5px;
+    background-color: var(--backgroundColor);
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+#dropBox {
+    background-color: var(--darkerBackgroundColor);
+    color: white;
+    height: 100%;
+    flex: 7;
+    padding: 0.4%;
+    border-radius: 5px;
+    border: 2px solid var(--borderColor);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.modules {
+    position: relative;
+    flex: 1;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+    width: 47%;
+    height: 96.4%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.modulesGrow {
+    animation: grow 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+
+@keyframes grow {
+    0% {
+    transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.modulesRemove {
+    animation: shrink 0.3s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.xButtons {
+    position: absolute;
+    top: 0.512848vh;
+    right: 0.512848vh;
+    background-color: rgba(0,0,0,0);
+    border-radius: 50px;
+    border: 0px;
+    font-weight: 700;
+    color: rgb(220,220,220);
+    text-align: center;
+    height:20px;
+    width:20px;
+    transition: 0.2s background ease-out, 0.2s transform ease-out;
+}
+
+.xButtons:hover {
+    background-color: rgba(0,0,0,0.5);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.scheduleCheckbox {
+    position: absolute;
+    left: 0%;
+    top: 25%;
+}
+
+.bulletInput {
+    display: inline-block;
+    width: 85%;
+    background-color: var(--veryCloseBackgroundColor);
+    color: white;
+    border: 0px;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 7px;
+    margin-left: 3%;
+    margin-top: -3px;
+}
+
+.newTextSection {
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.removeTextSection {
+    animation: slideUp 0.2s ease-in;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-70px);
+    }
+}
+
+#hamburger {
+    position: absolute;
+    background-color: var(--backgroundColor);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;  /* Add align-items property */
+    flex-direction: column;  /* Add flex-direction property */
+    border-radius: 20px;
+    right: 1vh;
+    top: 1vh;
+    width: 5vw;
+    height: 5vw;
+    padding: 0vw;
+    border: 3px solid var(--borderColor);
+    box-sizing: border-box;
+}
+
+#hamburger img {
+    float: right;
+    margin-top: 0.87vw;
+    width: 3vw;
+    height: 3vw;
+}
+
+#hamburger img:hover {
+    cursor: pointer;
+}
+
+.menuGrow {
+    animation: menuGrow 500ms ease-in-out;
+    animation-fill-mode: forwards;
+    transform-origin: right;
+}
+
+@keyframes menuGrow {
+    from {
+        width: 5vw;
+        height: 5vw;
+    }
+    to {
+        width: 17vw;
+        height: 98vh;
+    }
+}
+
+.menuShrink {
+    animation: menuShrink 500ms ease-in-out;
+    animation-fill-mode: forwards;
+    transform-origin: right;
+}
+
+@keyframes menuShrink {
+    from {
+        width: 17vw;
+        height: 77.8vh;
+    }
+    to {
+        width: 5vw;
+        height: 5vw;
+    }
+}
+
+.hamburgerRotate {
+    animation: hamburgerRotate 500ms ease-in-out;
+}
+
+@keyframes hamburgerRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-180deg);
+    }
+}
+
+.hamburgerRotateBackwards {
+    animation: hamburgerRotateBackwards 500ms ease-in-out;
+}
+
+@keyframes hamburgerRotateBackwards {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.hamburgerList {
+    width: 90%;
+    height: 88%;
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.showing {
+    display: block;
+    animation: fadeIn 500ms;
+}
+
+.hiding {
+    display: none;
+}
+
+#settingsHr {
+    margin-top: 7%;
+    width: 60%;
+    border: 2px solid var(--borderColor);
+    border-radius: 100vw;
+    background-color: var(--borderColor);
+}
+
+.homescreenLinks{
+    text-decoration: none; /* removes the underline */
+    color: inherit; /* maintains the link's color */
+    display: block;
+    background-color: var(--backgroundColor);
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    transition: 0.1s transform ease-out;
+    padding: 0.3% 0.3% 0.3% 0.3%;
+}
+
+.homescreenLinks:hover {
+    background-color: var(--darkerBackgroundColor);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+textarea {
+    resize: none;
+}
+
+.redPlaceholder::placeholder {
+    color: red !important;
+}
+
+*::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+#timeSelect {
+    position: relative;
+    height: 77%;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow: auto;
+    margin-right: 0;
+}
+
+#timeSelect div {
+    background-color: transparent;
+    transition: 200ms background ease-out;
+}
+
+.menuItem {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+}
+
+.dates {
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    height: auto;
+    margin-top: 7%;
+    margin-bottom: 0;
+}
+
+.dateHr {
+    display: block;
+    width: 85%;
+    border: 0.5px solid var(--borderColor);
+    margin-top: 6%;
+    margin-bottom: 0;
+    margin-bottom: 0px;
+}
+
+#timeSelect::-webkit-scrollbar {
+    display: none;
+}
+
+#dropBox::-webkit-scrollbar {
+    display: none;
+}
+
+#timeSelect div:hover {
+    cursor: pointer;
+}
+
+.archiveButtons {
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid var(--borderColor);
+    font-size: 25px;
+    width: 40%;
+    height: 8%;
+    margin: 2%;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    background-color: var(--darkerBackgroundColor);
+    color: white;
+    transition: 100ms background ease-out;
+}
+
+.archiveButtons:hover {
+    cursor: pointer;
+    background-color: var(--middleBackgroundColor);
+}
+
+.archiveSearch {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    border: 2px solid var(--borderColor);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    background-color: var(--darkerBackgroundColor);
+    display: block;
+}
+
+.archiveSearchModuleList {
+    height: auto;
+    text-align: center;
+    color: rgb(150,150,150);
+    background-color: transparent;
+    margin: 0;
+    margin-top: 3%;
+    font-size: 12px;
+}
+
+#goalsModule {
+    background-color: var(--darkerBackgroundColorHalf);
+    border-radius: 10px;
+    border: 2px solid var(--borderColor);
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    width: 90vw;
+    height: 90vh;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.grow {
+    animation: grow 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.goalsShrink {
+    animation: shrink 0.3s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+#goalsBlocker {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.fadeIn {
+    animation: fadeIn 0.3s;
+}
+
+.fadeOut {
+    animation: fadeOut 0.3s;
+}
+
+.goalsModules {
+    width: 100%;
+    height: 92%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.goalsModulesHeader {
+    font-size: 20px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.goalsSmallContainer {
+    width: 90%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+
+.reflectionsTextArea {
+    background-color: var(--middleBackgroundColor);
+    width: 85%;
+    padding: 7px;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    margin-left: 2%;
+}
+
+.scheduleInput {
+    background-color: var(--backgroundColor);
+    width: 78%;
+    margin-bottom: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+}
+
+.scheduleTimeSelect {
+    background-color: var(--backgroundColor);
+    margin-left: 9%;
+    width: 4vw;
+    border-radius: 5px;
+    border: 1px solid var(--borderColor);
+    color: white;
+    text-align: center;
+}
+
+.colorMenu {
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    background-color: var(--backgroundColor);
+    border-radius: 10px;
+    border: 3px solid var(--borderColor);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.colorMenuBox {
+    width: calc(29.333333% - 2px);
+    height: calc(29.333333% - 2px);
+    margin: 2%;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s transform ease-out;
+    background-size: cover;
+    overflow: hidden;
+    padding: 0;
+    background-clip: content-box;
+}
+
+.colorMenuBox:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.colorMenuSmallerBox {
+    width: 80%;
+    height: 80%;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorMenuSmallModule {
+    width: 60%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+}
+
+.colorMenuSmallTitle {
+    font-size: 0.555555vw;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.colorMenuSmallText {
+    margin-top: 15%;
+    margin-left: 15%;
+    width: 50%;
+    font-size: 0.347222vw;
+    color: white;
+    padding: 2%;
+    padding-left: 4%;
+    border-radius: 3px;
+}
+
+.colorMenuPlusSign:before {
+    color: white;
+    font-size: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    content: '\FF0B';
+}
+
+.routineBackground {
+    position: absolute;
+    width: 38vw;
+    left: 31vw;
+    height: 80vh;
+    top: 10vh;
+    background-color: var(--darkerBackgroundColorHalf);
+    border-radius: 10px;
+    border: 2px solid var(--borderColor);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.routineOptions {
+    height: 100%;
+    width: 35%;
+    border-radius: 10px;
+    border: 1.5px solid var(--borderColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border-right: none;
+}
+
+.routineButtons {
+    width: 87.5%;
+    padding: 2%;
+    color: white;
+    background-color: var(--middleBackgroundColor);
+    border-radius: 10px;
+    border: 1px solid var(--borderColor);
+    font-size: 16px;
+    transition: 0.2s background ease-out;
+}
+
+.routineButtons:hover {
+    cursor: pointer;
+    background-color: var(--darkerBackgroundColor);
+}
+
+.refreshButtons {
+    position: absolute;
+    bottom: -1.6%;
+    right: 3%;
+    color: white;
+}
+
+.refreshButtons:hover {
+    cursor: pointer;
+}
+
+.differentRoutinesBox {
+    width: 90%;
+    height: 50%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: -5%;
+    margin-top: 10%;
+}
+
+.differentRoutinesDiv {
+    width: 100%;
+    height: 14.2857%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.differentRoutinesButtons {
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    transition: 0.2s background ease-out;
+    display: inline-block;
+    margin-right: 5%;
+}
+
+.differentRoutinesButtons:hover {
+    cursor: pointer;
+    background-color: var(--veryCloseBackgroundColor);
+}
+
+.differentRoutinesHr {
+    width: 70%;
+    border: 0.5px solid var(--borderColor);
+    margin: 0;
+}
+
+.routineOptionsSeparator {
+    width: 85%;
+    border: 1px solid var(--borderColor);
+    margin-bottom: 12%;
+}
+
+.routineOptionsEditName {
+    color: white;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.routineOptionsEditName:hover {
+    cursor: pointer;
+}
+
+.routineOptionsEditTextArea {
+    width: 90%;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid var(--borderColor);
+    background-color: var(--darkerBackgroundColor);
+}
+
+#iconBar {
+
+    position: absolute;
+
+    height: 6vh;
+    width: 20vw;
+    right: 5vw;
+    top: 2vh;
+
+    display: flex;
+    justify-content: right;
+    
+    display: none;
+}
+
+#iconBar img, #iconBar a {
+    height: 6vh;
+    margin-left: 2%;
+    margin-right: 2%;
+}

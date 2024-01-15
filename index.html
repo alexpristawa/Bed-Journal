@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+    </style>
+    <title>Bed Journal</title>
+</head>
+<body>
+    <div id = 'textContainer'>
+        <p id = 'bedText'>bed</p>
+    </div>
+    <div id = 'animationHover' onclick = 'stopAnimation()'></div>
+    <div class = 'afterIntro'>
+        <h1 id = 'bedTitle'>Bed Journal</h1>
+        <div id = 'iconBar'>
+            <a href = 'https://www.instagram.com/kaitlyn_pristawa/' target = '_blank'>
+                <img src = '../InstagramIcon.png'>
+            </a>
+        </div>
+        <section>
+            <div class = 'screen'>
+                <div class = 'menuBar'>
+                    <h3>Modules</h3>
+                    <hr id = 'moduleFirstHr'>
+                    <p id = 'lookingForwardToBlock' draggable="true">Looking Forward To</p>
+                    <hr>
+                    <p id = 'intentionsBlock' draggable="true">Intentions</p>
+                    <hr>
+                    <p id = 'scheduleBlock' draggable="true">Schedule</p>
+                    <hr>
+                    <p id = 'tomorrowsScheduleBlock' draggable = 'true'>Tomorrow's Schedule</p>
+                    <hr>
+                    <p id = 'reflectionsBlock' draggable="true">Reflections</p>
+                </div>
+                <div id="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div id = 'hamburger' class = 'profileBar'>
+                <img src = '../HamburgerIcon.png' onclick = 'menu()' id = 'hamburgerIcon'>
+                <div class = 'hamburgerList hiding' id = 'hamburgerListId'>
+                    <hr id = 'settingsHr'>
+                    <p class = 'homescreenLinks' onclick = 'archive()'>Archive</p>
+                    <hr class = 'hamburgerHr'>
+                    <a class = 'homescreenLinks' onclick = 'clearLocalStorage()'>Clear Cache</a>
+                    <hr class = 'hamburgerHr'>
+                    <a class = 'homescreenLinks' id = 'colorChangeId' onclick = 'colorChange()'>Color Scheme</a>
+                    <hr class = 'hamburgerHr'>
+                    <a class = 'homescreenLinks' onclick = 'routine()'>Routine</a>
+                    <hr class = 'hamburgerHr'>
+                    <hr class = 'hamburgerHr'>
+                    <a class = 'homescreenLinks' onclick = 'comingSoon(event)'>Failure Journal</a>
+                    <hr class = 'hamburgerHr'>
+                    <!-- <a class = 'homescreenLinks' onclick = 'makeGoalsModule()'>Goals</a> -->
+                    <a class = 'homescreenLinks' onclick = 'comingSoon(event)'>Goals</a>
+                    <hr class = 'hamburgerHr'>
+                    <a class = 'homescreenLinks' onclick = 'comingSoon(event)'>Habit Builder</a>
+                    <hr class = 'hamburgerHr'>
+                    <a class = 'homescreenLinks' onclick = 'comingSoon(event)'>Looking Back</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
